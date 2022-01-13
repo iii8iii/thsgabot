@@ -18,6 +18,7 @@ require('dotenv').config();
 	const ths = new thsBot(ctx, process.env.USER, process.env.USERPSW, wechatBot);
 
 	const update = async (ms) => {
+		console.log('---------------begin---------------');
 		let codes = [];
 
 		const zt = await getZtStocksInfo();
@@ -32,6 +33,7 @@ require('dotenv').config();
 			}
 		}
 
+		console.log('---------------update---------------');
 		await ths.update(codes, '399006');
 
 		console.log('update done, waitting for next run...');
