@@ -10,10 +10,10 @@ on:
     branches: [main]
 
 env:
-NODE_ENV: production
-USER: ${{ secrets.USER}}
-USERPSW: ${{ secrets.USERPSW}}
-botUrls: ${{ secrets.botUrls}}
+  NODE_ENV: production
+  USER: ${{ secrets.USER}}
+  USERPSW: ${{ secrets.USERPSW}}
+  botUrls: ${{ secrets.botUrls}}
 
 jobs:
   build:
