@@ -1,0 +1,28 @@
+{
+	"name": "thsgabot",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/iii8iii/thsgabot.git"
+	},
+	"keywords": [],
+	"author": "OCY",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/iii8iii/thsgabot/issues"
+	},
+	"homepage": "https://github.com/iii8iii/thsgabot#readme",
+	"dependencies": {
+		"@iii8iii/analysts": "^0.7.3",
+		"@iii8iii/dfcfbot": "^1.0.6",
+		"@iii8iii/thsbot": "^1.1.8",
+		"@iii8iii/wechatbot": "^1.0.1",
+		"dotenv": "^11.0.0",
+		"playwright-firefox": "^1.17.2"
+	}
+}
