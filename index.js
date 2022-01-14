@@ -29,7 +29,7 @@ require('dotenv').config();
 		for (const q of qsDiffZt) {
 			const { c, zdp } = q;
                         let dData=undefined
-                        zdp>-5&& dData = await getKlineData(c, 'D');
+                        zdp>-5&& (dData = await getKlineData(c, 'D'));
 			dData&&ljxt(dData) && codes.push(c);
 		}
 
