@@ -16,8 +16,9 @@ require('dotenv').config();
 	const ctx = await browser.newContext();
 	const wechatBot = new WechatBot(process.env.botUrls.split(','));
 	const ths = new thsBot(ctx, process.env.USER, process.env.USERPSW, wechatBot);
+        const start = Date.now()
 
-	const update = async (ms) => {
+	const update = async (hs=1) => {
 		console.log('---------------begin---------------');
 		let codes = [];
 
@@ -27,20 +28,17 @@ require('dotenv').config();
 		const qsDiffZt = _.differenceBy(qs, zt, 'c');
 		for (const q of qsDiffZt) {
 			const { c, zdp } = q;
-			const dData = await getKlineData(c, 'D');
-			if (ljxt(dData) && zdp > -3) {
-				codes.push(c);
-			}
+                        let dData=undefined
+                        zdp>-5&& dData = await getKlineData(c, 'D');
+			dData&&ljxt(dData) && codes.push(c);
 		}
 
 		console.log('---------------update---------------');
 		await ths.update(codes, '399006');
 
 		console.log('update done, waitting for next run...');
-		setTimeout(() => {
-			update(ms);
-		}, ms);
+		Date.now()-start<hs*60*60*1000&&update();
 	};
 
-	update(60 * 1000);
+	update();
 })();
