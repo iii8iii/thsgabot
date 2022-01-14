@@ -8,6 +8,8 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    - cron:  '0 0 0-5 ? * MON,TUE,WED,THU,FRI *'
 
 env:
   NODE_ENV: production
