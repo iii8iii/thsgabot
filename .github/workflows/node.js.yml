@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron:  '0 0 0-5 ? * MON,TUE,WED,THU,FRI *'
+    - cron:  '0 0-5 * * 1-5'
 
 env:
   NODE_ENV: production
