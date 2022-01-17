@@ -18,6 +18,7 @@ const start = async () => {
 	const ths = new thsBot(ctx, process.env.USER, process.env.USERPSW, wechatBot);
 	const codes = await getCodes();
 	await ths.update(codes, '399006');
+	await browser.close();
 };
 
 const getCodes = async () => {
