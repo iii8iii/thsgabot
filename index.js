@@ -19,6 +19,7 @@ const start = async () => {
 	const codes = await getCodes();
 	await ths.update(codes, '399006');
 	await browser.close();
+	console.log('browser closed');
 };
 
 const getCodes = async () => {
