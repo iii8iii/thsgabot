@@ -1,9 +1,8 @@
 name: THS UPDTAE
 
 on:
-  #every 5 mins from 8am to 3pm ut8 from mon to fri
   schedule:
-    - cron: '*/5 0-7 * * 1-5'
+    - cron: '*/5 * * * 1-5'
 
 env:
   NODE_ENV: production
