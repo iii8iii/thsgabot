@@ -2,7 +2,7 @@ name: THS UPDTAE
 
 on:
   schedule:
-    - cron: '* * * * *'
+    - cron: '*/30 * * * *'
 
 env:
   NODE_ENV: production
