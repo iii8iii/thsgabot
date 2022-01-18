@@ -1,0 +1,30 @@
+name: THS
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+
+env:
+  NODE_ENV: production
+  USER: ${{ secrets.USER}}
+  USERPSW: ${{ secrets.USERPSW}}
+  botUrls: ${{ secrets.botUrls}}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npx playwright install-deps  firefox
+      - run: npm ci
+      - run: npm start
