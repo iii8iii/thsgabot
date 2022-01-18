@@ -29,25 +29,22 @@ const getCodes = async () => {
 	for (const q of qsDiffZt) {
 		const { c, zdp } = q;
 		let dData = undefined;
-		zdp > -5 && (dData = await getKlineData(c, 'D'));
+		zdp > -6 && (dData = await getKlineData(c, 'D'));
 		dData && ljxt(dData) && codes.push(c);
 	}
 	return codes;
 };
 
-const update = async (ths, s) => {
+const update = async (ths) => {
 	console.log('------update begin');
 	const codes = await getCodes();
 	await ths.update(codes, '399006');
-	console.log('------updating');
-	Date.now() - s < 60 * 60 * 1000 && (await update(ths, s));
 	console.log('------update end');
 };
 
 const start = async () => {
-	const s = Date.now();
 	const { browser, ths } = await init();
-	await update(ths, s);
+	await update(ths);
 	await browser.close();
 	console.log('------browser closed');
 };
