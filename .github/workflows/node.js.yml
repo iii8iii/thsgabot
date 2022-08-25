@@ -1,8 +1,5 @@
-name: THS UPDTAE
-
+name: THS UPDTAE~
 on: pull_request
-
-
 env:
   NODE_ENV: production
   USER: ${{ secrets.USER}}
